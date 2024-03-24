@@ -598,7 +598,7 @@ section {
 
 .portfolio .portfolio-wrap::before {
   content: "";
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.75);
   position: absolute;
   left: 0;
   right: 0;
@@ -666,7 +666,7 @@ section {
 }
 
 .portfolio {
-  background-color: #f5f5dc; /* Bej renginin HEX kodu */
+  background-color: darkslategray; /* Bej renginin HEX kodu */
   /* Diğer stil tanımlamalarınız */
 }
 
