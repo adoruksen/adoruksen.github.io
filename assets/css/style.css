@@ -519,7 +519,19 @@ section {
 # Portfolio
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
-  margin-bottom: 30px;
+  margin-bottom: 0; /* İstenmeyen boşlukları kaldır */
+  display: flex; /* Flexbox kullanarak öğeyi ortalayın */
+  flex-direction: column; /* İçerikleri dikey olarak sıralayın */
+  align-items: center; /* İçerikleri yatay olarak ortalayın */
+  text-align: center; /* Metinleri ortala */
+}
+
+.portfolio .portfolio-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+  align-items: center;
+  justify-items: center;
 }
 
 .portfolio #portfolio-flters {
@@ -564,11 +576,13 @@ section {
   justify-content: center; /* İçerikleri yatay olarak ortala */
   align-items: center; /* İçerikleri dikey olarak ortala */
   text-align: center; /* Metinleri ortala */
+  width: 100%; /* .portfolio-wrap'ı içerdiği kutunun genişliğine sığdır */
+
 }
 
 .portfolio .portfolio-wrap h5 {
   /* Başlık için ek stil (gerekirse) */
-  margin-top: 20px; /* Üstten boşluk (gerekirse) */
+  margin: 10px 0; /* Üst ve alttan 10px boşluk */
 }
 
 .portfolio .portfolio-wrap img {
@@ -577,7 +591,7 @@ section {
   height: 120px; /* Yüksekliği sabit bir değere ayarla */
   object-fit: cover; /* Resmin boyutları bozulmadan kutuya sığmasını sağla */
   border-radius: 50%; /* İsteğe bağlı olarak yuvarlak resim yapmak için */
-  margin-bottom: 20px; /* Alttan boşluk */
+  margin-bottom: 10px; /* Alttan 10px boşluk */
 }
 
 .portfolio .portfolio-wrap::before {
@@ -597,12 +611,13 @@ section {
   opacity: 1;
   left: 0;
   right: 0;
-  bottom: -60px;
   z-index: 3;
   position: absolute;
   transition: all ease-in-out 0.3s;
   display: flex;
   justify-content: center;
+  position: absolute; /* Üstteki hover efekti için pozisyon ayarı */
+  bottom: 10px; /* Bağlantıları kutunun altına 10px boşlukla koy */
 }
 
 .portfolio .portfolio-wrap .portfolio-links a {
@@ -611,7 +626,8 @@ section {
   text-align: center;
   background: rgba(20, 157, 221, 0.75);
   transition: 0.3s;
-  width: 50%;
+  width: auto; /* Özgün genişliğini kullan */
+  padding: 5px 10px; /* Etrafa 5px yukarı/aşağı ve 10px sağ/sol padding ekle */
 }
 
 .portfolio .portfolio-wrap .portfolio-links a:hover {
