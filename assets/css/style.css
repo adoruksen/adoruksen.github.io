@@ -586,6 +586,7 @@ section {
 .portfolio .portfolio-wrap h5 {
   /* Başlık için ek stil (gerekirse) */
   margin: 10px 0; /* Üst ve alttan 10px boşluk */
+  color: white;
 
 }
 
