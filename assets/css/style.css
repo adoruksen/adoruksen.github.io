@@ -231,6 +231,7 @@ h6 {
   height: 100vh;
   background: url("../img/hero-bg.webp") top center;
   background-size: cover;
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
 }
 
 #hero:before {
@@ -893,7 +894,7 @@ section {
 .contact {
   padding-bottom: 130px;
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
-  background: #2c2f3f;
+  background: gray;
 }
 
 .contact .info {
