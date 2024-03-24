@@ -313,7 +313,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #173b6c;
+  color: #fff;
 }
 
 .section-title h2::after {
@@ -322,13 +322,14 @@ section {
   display: block;
   width: 50px;
   height: 3px;
-  background: #149ddd;
+  background: black;
   bottom: 0;
   left: 0;
 }
 
 .section-title p {
   margin-bottom: 0;
+  color: #fff;
 }
 
 /*--------------------------------------------------------------
@@ -585,6 +586,7 @@ section {
 .portfolio .portfolio-wrap h5 {
   /* Başlık için ek stil (gerekirse) */
   margin: 10px 0; /* Üst ve alttan 10px boşluk */
+
 }
 
 .portfolio .portfolio-wrap img {
@@ -594,6 +596,7 @@ section {
   object-fit: cover; /* Resmin boyutları bozulmadan kutuya sığmasını sağla */
   border-radius: 50%; /* İsteğe bağlı olarak yuvarlak resim yapmak için */
   margin-bottom: 10px; /* Alttan 10px boşluk */
+  border-color: black;
 }
 
 .portfolio .portfolio-wrap::before {
@@ -889,11 +892,12 @@ section {
 .contact {
   padding-bottom: 130px;
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
+  background: #2c2f3f;
 }
 
 .contact .info {
   padding: 30px;
-  background: #2c2f3f;
+  background: #fff;
   width: 100%;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
