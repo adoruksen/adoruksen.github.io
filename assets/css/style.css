@@ -662,11 +662,11 @@ section {
 .portfolio .portfolio-wrap:hover .portfolio-links {
   bottom: 0;
   background: rgba(20, 157, 221, 0.75); /* Hover olduğunda arka planı mavi yap */
-  opacity: 1; /* Hover olduğunda linkleri göster */
+  opacity:0.25; /* Hover olduğunda linkleri göster */
 }
 
 .portfolio {
-  background-color: darkslategray; /* Bej renginin HEX kodu */
+  background-color: antiquewhite; /* Bej renginin HEX kodu */
   /* Diğer stil tanımlamalarınız */
 }
 
