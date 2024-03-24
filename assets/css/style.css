@@ -559,6 +559,23 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
+  display: flex; /* Flexbox modelini kullan */
+  flex-direction: column; /* İçerikleri dikey olarak sırala */
+  justify-content: center; /* İçerikleri yatay olarak ortala */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  text-align: center; /* Metinleri ortala */
+}
+
+.portfolio .portfolio-wrap h5 {
+  /* Başlık için ek stil (gerekirse) */
+  margin-top: 20px; /* Üstten boşluk (gerekirse) */
+}
+
+.portfolio .portfolio-wrap img {
+  /* Resim için ek stil (gerekirse) */
+  max-width: 100%; /* Konteynerin genişliğine sığdır */
+  height: auto; /* Yüksekliği otomatik ayarla */
+  margin-bottom: 20px; /* Alttan boşluk (gerekirse) */
 }
 
 .portfolio .portfolio-wrap::before {
