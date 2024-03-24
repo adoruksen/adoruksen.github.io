@@ -667,6 +667,7 @@ section {
 
 .portfolio {
   background-color: #2c2f3f; /* Bej renginin HEX kodu */
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
   /* Diğer stil tanımlamalarınız */
 }
 
@@ -887,13 +888,16 @@ section {
 --------------------------------------------------------------*/
 .contact {
   padding-bottom: 130px;
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
 }
 
 .contact .info {
   padding: 30px;
   background: #2c2f3f;
   width: 100%;
-  box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.12);
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
+
 }
 
 .contact .info i {
