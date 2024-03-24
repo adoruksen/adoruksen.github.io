@@ -573,9 +573,11 @@ section {
 
 .portfolio .portfolio-wrap img {
   /* Resim için ek stil (gerekirse) */
-  max-width: 100%; /* Konteynerin genişliğine sığdır */
-  height: auto; /* Yüksekliği otomatik ayarla */
-  margin-bottom: 20px; /* Alttan boşluk (gerekirse) */
+  width: 120px; /* Genişliği sabit bir değere ayarla */
+  height: 120px; /* Yüksekliği sabit bir değere ayarla */
+  object-fit: cover; /* Resmin boyutları bozulmadan kutuya sığmasını sağla */
+  border-radius: 50%; /* İsteğe bağlı olarak yuvarlak resim yapmak için */
+  margin-bottom: 20px; /* Alttan boşluk */
 }
 
 .portfolio .portfolio-wrap::before {
