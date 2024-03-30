@@ -849,7 +849,7 @@ section {
   border-left: 1px solid #37b3ed;
 }
 
-.portfolio .videos-wrap:hover::before {
+.videos .videos-wrap:hover::before {
   top: 0;
   left: 0;
   right: 0;
