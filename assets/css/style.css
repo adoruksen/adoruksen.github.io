@@ -864,7 +864,7 @@ section {
 }
 
 .videos {
-  background-color: cornflowerblue; /* Bej renginin HEX kodu */
+  background-color: darkslateblue; /* Bej renginin HEX kodu */
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
   /* Diğer stil tanımlamalarınız */
 }
