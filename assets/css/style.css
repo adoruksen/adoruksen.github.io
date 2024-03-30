@@ -537,7 +537,7 @@ section {
 }
 
 .portfolio #portfolio-flters {
-  padding: 0;
+  //padding: 0;
   margin: 0 auto 35px auto;
   list-style: none;
   text-align: center;
@@ -760,6 +760,37 @@ section {
   justify-items: center;
 }
 
+.videos #videos-flters {
+  //padding: 0;
+  margin: 0 auto 35px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.videos #videos-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.videos #videos-flters li:hover,
+.videos #videos-flters li.filter-active {
+  color: #149ddd;
+}
+
+.videos #videos-flters li:last-child {
+  margin-right: 0;
+}
 
 .videos .videos-wrap {
   transition: 0.3s;
@@ -771,27 +802,22 @@ section {
   justify-content: center; /* İçerikleri yatay olarak ortala */
   align-items: center; /* İçerikleri dikey olarak ortala */
   text-align: center; /* Metinleri ortala */
-  width: 100%; /* .portfolio-wrap'ı içerdiği kutunun genişliğine sığdır */
+  width: 100%; /* .videos-wrap'ı içerdiği kutunun genişliğine sığdır */
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
   cursor: pointer;
-
 }
 
 .videos .videos-wrap h5 {
-  /* Başlık için ek stil (gerekirse) */
   margin: 10px 0; /* Üst ve alttan 10px boşluk */
   color: white;
-
 }
 
 .videos .videos-wrap img {
-  /* Resim için ek stil (gerekirse) */
   width: 120px; /* Genişliği sabit bir değere ayarla */
   height: 120px; /* Yüksekliği sabit bir değere ayarla */
   object-fit: cover; /* Resmin boyutları bozulmadan kutuya sığmasını sağla */
   border-radius: 50%; /* İsteğe bağlı olarak yuvarlak resim yapmak için */
   margin-bottom: 10px; /* Alttan 10px boşluk */
-  border-color: black;
 }
 
 .videos .videos-wrap::before {
@@ -808,15 +834,14 @@ section {
 }
 
 .videos .videos-wrap .videos-links {
-//opacity: 1;
   left: 0;
   right: 0;
   z-index: 3;
   transition: all ease-in-out 0.3s;
   position: absolute; /* Üstteki hover efekti için pozisyon ayarı */
   bottom: 10px; /* Bağlantıları kutunun altına 10px boşlukla koy */
-  width: 100%; /* Genişliği .portfolio-wrap ile aynı yap */
-  height: 100%; /* Yüksekliği .portfolio-wrap ile aynı yap */
+  width: 100%; /* Genişliği .videos-wrap ile aynı yap */
+  height: 100%; /* Yüksekliği .videos-wrap ile aynı yap */
   background: rgba(20, 157, 221, 0); /* Varsayılan olarak arka planı transparan yap */
   opacity: 0; /* Varsayılan olarak linkleri görünmez yap */
   display: flex; /* İçerikleri flexbox ile düzenle */
@@ -828,13 +853,10 @@ section {
   color: #fff;
   font-size: 28px;
   text-align: center;
-//background: rgba(20, 157, 221, 0.75);
   transition: 0.3s;
-//width: auto; /* Özgün genişliğini kullan */
   padding: 5px 10px; /* Etrafa 5px yukarı/aşağı ve 10px sağ/sol padding ekle */
-
-  width: 100%; /* Genişliği .portfolio-links ile aynı yap */
-  height: 100%; /* Yüksekliği .portfolio-links ile aynı yap */
+  width: 100%; /* Genişliği .videos-links ile aynı yap */
+  height: 100%; /* Yüksekliği .videos-links ile aynı yap */
   display: flex; /* Flexbox kullanarak içerikleri düzenle */
   align-items: center; /* İçerikleri dikey olarak ortala */
   justify-content: center; /* İçerikleri yatay olarak ortala */
@@ -864,13 +886,13 @@ section {
 }
 
 .videos {
-  background-color: darkslateblue; /* Bej renginin HEX kodu */
+  background-color: cadetblue; /* Bej renginin HEX kodu */
   border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
   /* Diğer stil tanımlamalarınız */
 }
 
 /*--------------------------------------------------------------
-# Video Details
+# Videos Details
 --------------------------------------------------------------*/
 .videos-details {
   padding-top: 40px;
@@ -933,6 +955,7 @@ section {
 .videos-details .videos-description p {
   padding: 0;
 }
+
 
 /*--------------------------------------------------------------
 # Services
