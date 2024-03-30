@@ -742,6 +742,230 @@ section {
 }
 
 /*--------------------------------------------------------------
+# Video Part
+--------------------------------------------------------------*/
+.videos .videos-item {
+  margin-bottom: 0; /* İstenmeyen boşlukları kaldır */
+  display: flex; /* Flexbox kullanarak öğeyi ortalayın */
+  flex-direction: column; /* İçerikleri dikey olarak sıralayın */
+  align-items: center; /* İçerikleri yatay olarak ortalayın */
+  text-align: center; /* Metinleri ortala */
+}
+
+.videos .videos-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+  align-items: center;
+  justify-items: center;
+}
+
+.videos #videos-flters {
+  padding: 0;
+  margin: 0 auto 35px auto;
+  list-style: none;
+  text-align: center;
+  background: #fff;
+  border-radius: 50px;
+  padding: 2px 15px;
+}
+
+.videos #videos-flters li {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 15px 8px 15px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #272829;
+  margin-bottom: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.videos #videos-flters li:hover,
+.videos #videos-flters li.filter-active {
+  color: #149ddd;
+}
+
+.videos #videos-flters li:last-child {
+  margin-right: 0;
+}
+
+.videos .videos-wrap {
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  display: flex; /* Flexbox modelini kullan */
+  flex-direction: column; /* İçerikleri dikey olarak sırala */
+  justify-content: center; /* İçerikleri yatay olarak ortala */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  text-align: center; /* Metinleri ortala */
+  width: 100%; /* .portfolio-wrap'ı içerdiği kutunun genişliğine sığdır */
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
+  cursor: pointer;
+
+}
+
+.videos .videos-wrap h5 {
+  /* Başlık için ek stil (gerekirse) */
+  margin: 10px 0; /* Üst ve alttan 10px boşluk */
+  color: white;
+
+}
+
+.videos .videos-wrap img {
+  /* Resim için ek stil (gerekirse) */
+  width: 120px; /* Genişliği sabit bir değere ayarla */
+  height: 120px; /* Yüksekliği sabit bir değere ayarla */
+  object-fit: cover; /* Resmin boyutları bozulmadan kutuya sığmasını sağla */
+  border-radius: 50%; /* İsteğe bağlı olarak yuvarlak resim yapmak için */
+  margin-bottom: 10px; /* Alttan 10px boşluk */
+  border-color: black;
+}
+
+.videos .videos-wrap::before {
+  content: "";
+  background: rgba(255, 255, 255, 0.75);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transition: all ease-in-out 0.3s;
+  z-index: 2;
+  opacity: 0;
+}
+
+.videos .videos-wrap .videos-links {
+//opacity: 1;
+  left: 0;
+  right: 0;
+  z-index: 3;
+  transition: all ease-in-out 0.3s;
+  position: absolute; /* Üstteki hover efekti için pozisyon ayarı */
+  bottom: 10px; /* Bağlantıları kutunun altına 10px boşlukla koy */
+  width: 100%; /* Genişliği .portfolio-wrap ile aynı yap */
+  height: 100%; /* Yüksekliği .portfolio-wrap ile aynı yap */
+  background: rgba(20, 157, 221, 0); /* Varsayılan olarak arka planı transparan yap */
+  opacity: 0; /* Varsayılan olarak linkleri görünmez yap */
+  display: flex; /* İçerikleri flexbox ile düzenle */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  justify-content: center; /* İçerikleri yatay olarak ortala */
+}
+
+.videos .videos-wrap .videos-links a {
+  color: #fff;
+  font-size: 28px;
+  text-align: center;
+//background: rgba(20, 157, 221, 0.75);
+  transition: 0.3s;
+//width: auto; /* Özgün genişliğini kullan */
+  padding: 5px 10px; /* Etrafa 5px yukarı/aşağı ve 10px sağ/sol padding ekle */
+
+  width: 100%; /* Genişliği .portfolio-links ile aynı yap */
+  height: 100%; /* Yüksekliği .portfolio-links ile aynı yap */
+  display: flex; /* Flexbox kullanarak içerikleri düzenle */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  justify-content: center; /* İçerikleri yatay olarak ortala */
+  background: none; /* Bağlantı arka planını kaldır */
+}
+
+.videos .videos-wrap .videos-links a:hover {
+  background: rgba(20, 157, 221, 0.95);
+}
+
+.videos .videos-wrap .videos-links a+a {
+  border-left: 1px solid #37b3ed;
+}
+
+.portfolio .videos-wrap:hover::before {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 1;
+}
+
+.videos .videos-wrap:hover .videos-links {
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.75); /* Hover olduğunda arka planı mavi yap */
+  opacity:0.25; /* Hover olduğunda linkleri göster */
+}
+
+.videos {
+  background-color: #2c2f3f; /* Bej renginin HEX kodu */
+  border-radius: 15px; /* Kenarları yuvarlaklaştırmak için */
+  /* Diğer stil tanımlamalarınız */
+}
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.videos-details {
+  padding-top: 40px;
+}
+
+.videos-details .videos-details-slider img {
+  width: 100%;
+}
+
+.videos-details .videos-details-slider .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.videos-details .videos-details-slider .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #149ddd;
+}
+
+.videos-details .videos-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #149ddd;
+}
+
+.videos-details .videos-info {
+  padding: 30px;
+  box-shadow: 0px 0 30px rgba(5, 13, 24, 0.08);
+}
+
+.videos-details .videos-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.videos-details .videos-info ul {
+  list-style: none;
+  padding: 0;
+  font-size: 15px;
+}
+
+.videos-details .videos-info ul li+li {
+  margin-top: 10px;
+}
+
+.videos-details .videos-description {
+  padding-top: 30px;
+}
+
+.videos-details .videos-description h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.videos-details .videos-description p {
+  padding: 0;
+}
+
+/*--------------------------------------------------------------
 # Services
 --------------------------------------------------------------*/
 .services .icon-box {
