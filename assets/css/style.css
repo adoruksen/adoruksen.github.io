@@ -489,11 +489,11 @@ section {
 .videos .videos-container {
   /* Force grid (override Bootstrap .row) and create fixed-width columns */
   display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 360px));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 32px;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
-  justify-items: center;
+  justify-items: stretch;
   justify-content: center;
   grid-auto-flow: row;
 }
@@ -521,9 +521,8 @@ section {
   cursor: pointer;
   box-shadow: var(--shadow-sm);
   border: 3px solid transparent;
-  height: 280px;
+  height: 320px;
   width: 100%;
-  max-width: 360px;
   box-sizing: border-box;
   padding: 0;
   overflow: hidden;
@@ -538,8 +537,9 @@ section {
 .portfolio .portfolio-wrap img {
   display: block;
   width: 100%;
-  height: 157px;
+  height: 220px;
   object-fit: cover;
+  object-position: center;
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   margin: 0;
   transition: var(--transition);
@@ -556,15 +556,15 @@ section {
 .portfolio .portfolio-wrap h5 {
   margin: 0;
   color: var(--text-primary);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.3;
   text-align: center;
-  padding: 20px;
-  height: 80px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  padding: 18px 12px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
   text-overflow: ellipsis;
   overflow-wrap: anywhere;
@@ -608,16 +608,18 @@ section {
   align-self: start !important;
 }
 .portfolio .portfolio-wrap {
-  height: 280px !important;
-  max-width: 360px !important;
+  height: 320px !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 .portfolio .portfolio-wrap img {
-  height: 157px !important;
+  height: 220px !important;
   width: 100% !important;
   object-fit: cover !important;
+  object-position: center !important;
 }
 .portfolio .portfolio-wrap h5 {
-  height: 80px !important;
+  height: 100px !important;
   padding: 12px 16px !important;
   display: -webkit-box !important;
   -webkit-line-clamp: 2 !important;
@@ -824,7 +826,7 @@ section {
 @media (max-width: 1024px) {
   .portfolio .portfolio-container,
   .videos .videos-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
   }
 }
@@ -832,12 +834,13 @@ section {
 @media (max-width: 768px) {
   .portfolio .portfolio-container,
   .videos .videos-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
   }
   .portfolio, .videos {
     padding: 60px 25px;
   }
+}
 }
 
 /*--------------------------------------------------------------
