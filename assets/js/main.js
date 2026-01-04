@@ -5,6 +5,9 @@
 (function() {
   "use strict";
 
+  // If local CV isn't available, fall back to this Google Drive folder/link
+  const DRIVE_FALLBACK_URL = 'https://drive.google.com/drive/folders/1peF0wP39NoaRPXqNVIM1BlUUp7VNUfjm?usp=sharing';
+
   /**
    * Helper Functions
    */
@@ -313,6 +316,104 @@
 
   // Initialize YouTube videos when page loads
   window.addEventListener('load', initYouTubeVideos);
+
+  /**
+   * Verify CV links exist on the server and provide helpful fallbacks/messages
+   */
+  const verifyCVLinks = async () => {
+    const cvAnchors = document.querySelectorAll('.cv-section a[href*="assets/cv/"]');
+    if (!cvAnchors || cvAnchors.length === 0) return;
+
+    // If opened via file://, allow the browser to handle anchor navigation directly.
+    // Avoid intercepting clicks under file:// so direct preview/download works when the file exists locally.
+    if (location.protocol === 'file:') {
+      console.info('verifyCVLinks: running under file:// — skipping automatic checks and allowing native navigation.');
+      return;
+    }
+
+    for (const a of cvAnchors) {
+      const originalHref = a.getAttribute('href');
+      const tries = [originalHref];
+      // add common filename variations to try
+      if (originalHref.endsWith('.pdf')) {
+        tries.push(originalHref.replace('.pdf', '.PDF'));
+        tries.push(originalHref.replace('.pdf', '_CV.pdf'));
+        tries.push(originalHref.replace('.pdf', '-CV.pdf'));
+      } else {
+        tries.push(originalHref + '.pdf');
+      }
+
+      let found = false;
+      for (const href of tries) {
+        try {
+          const res = await fetch(href, { method: 'HEAD' });
+          if (res && res.ok) {
+            // update href to the working one if different
+            if (href !== originalHref) a.setAttribute('href', href);
+            found = true;
+            break;
+          }
+        } catch (err) {
+          // ignore and try next
+        }
+      }
+
+      if (!found) {
+        // fallback to Google Drive folder link so user can access the CV
+        a.setAttribute('href', DRIVE_FALLBACK_URL);
+        a.setAttribute('target', '_blank');
+        a.setAttribute('rel', 'noopener');
+        a.style.opacity = '0.95';
+        a.addEventListener('click', (e) => {
+          // allow the navigation but inform the user why
+          alert('Local CV not found on server; opening the Google Drive folder where your CV is stored.');
+        }, { once: true });
+      }
+    }
+  };
+
+  window.addEventListener('load', verifyCVLinks);
+
+  /**
+   * Force-download CV when clicking the Download button.
+   * Uses fetch -> blob -> objectURL to trigger a download so browsers don't open PDF inline.
+   * Falls back to opening the file in a new tab on error. Skips interception under file://.
+   */
+  const setupCVDownload = () => {
+    const downloadBtns = document.querySelectorAll('.cv-section a.btn-download');
+    if (!downloadBtns || downloadBtns.length === 0) return;
+
+    // If opened via file:// allow native behaviour (cannot fetch blobs reliably)
+    if (location.protocol === 'file:') return;
+
+    downloadBtns.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const href = btn.getAttribute('href');
+        if (!href) return;
+        try {
+          const res = await fetch(href);
+          if (!res.ok) throw new Error('Network response was not ok');
+          const blob = await res.blob();
+          const filename = btn.getAttribute('download') || href.split('/').pop() || 'cv.pdf';
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.style.display = 'none';
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        } catch (err) {
+          // Fallback: open in new tab (preview) if download-by-fetch fails
+          window.open(href, '_blank');
+        }
+      });
+    });
+  };
+
+  window.addEventListener('load', setupCVDownload);
 
   /**
    * Dynamic Content Renderer for Portfolio & Videos
