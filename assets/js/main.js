@@ -267,6 +267,7 @@
 
   /**
    * YouTube Video Handler - Click to Load Video
+   * When a new video is played, reset all other videos to default state
    */
   const initYouTubeVideos = () => {
     const videoThumbnails = select('.video-thumbnail', true);
@@ -274,10 +275,25 @@
     videoThumbnails.forEach(thumbnail => {
       thumbnail.addEventListener('click', function() {
         const videoId = this.getAttribute('data-video-id');
-        const videoWrap = this.closest('.videos-wrap');
+        const videoWrap = this.closest('.videos-wrap') || this.closest('.portfolio-wrap');
         const videoEmbed = videoWrap.querySelector('.video-embed');
         
         if (videoId && videoEmbed) {
+          // First, reset ALL other videos to default state
+          const allVideoWraps = document.querySelectorAll('.videos-wrap, .portfolio-wrap');
+          allVideoWraps.forEach(wrap => {
+            const embed = wrap.querySelector('.video-embed');
+            const thumb = wrap.querySelector('.video-thumbnail');
+            if (embed && thumb && wrap !== videoWrap) {
+              // Stop video and hide embed
+              embed.innerHTML = '';
+              embed.classList.remove('active');
+              // Show thumbnail again
+              thumb.style.display = 'block';
+            }
+          });
+          
+          // Now play the clicked video
           // Create iframe
           const iframe = document.createElement('iframe');
           iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
