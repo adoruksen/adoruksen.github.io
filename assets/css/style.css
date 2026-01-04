@@ -457,7 +457,6 @@ section {
 
 .portfolio .portfolio-container,
 .videos .videos-container {
-  /* Force grid (override Bootstrap .row) and create fixed-width columns */
   display: grid !important;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 28px;
@@ -506,22 +505,17 @@ section {
 }
 
 .portfolio .portfolio-wrap img {
-  display: block;
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  object-position: center;
-
-.portfolio .portfolio-wrap img {
   width: 120px !important;
   height: 120px !important;
   object-fit: cover !important;
+  object-position: center !important;
   border-radius: 50% !important;
   display: block !important;
   margin: 16px auto !important;
   border: 5px solid #FFFFFF !important;
 }
-}
+
+
 
 .portfolio .portfolio-wrap:hover img {
   transform: scale(1.1);
@@ -616,12 +610,7 @@ section {
   display: flex !important;
   align-items: center !important;
 }
-  padding: 12px 16px !important;
-  display: -webkit-box !important;
-  -webkit-line-clamp: 2 !important;
-  -webkit-box-orient: vertical !important;
-  overflow: hidden !important;
-}
+
 
 /* VIDEOS - Thumbnail Design */
 .videos .videos-wrap {
@@ -665,7 +654,6 @@ section {
   object-fit: cover;
   transition: var(--transition);
 }
-
 /* Ensure thumbnails and embeds respect parent rounding */
 .videos .video-thumbnail,
 .videos .video-embed,
@@ -679,7 +667,6 @@ section {
   border-radius: 32px !important;
   display: block !important;
 }
-
 .videos .video-thumbnail:hover img {
   transform: scale(1.05);
 }
@@ -861,7 +848,7 @@ section {
     padding: 60px 25px;
   }
 }
-}
+
 
 /*--------------------------------------------------------------
 # Contact Section with CV Button
@@ -1087,6 +1074,11 @@ section {
   overflow: hidden !important;
 }
 
+/* Ensure vertical spacing between rows when Isotope/fitRows is used */
+.portfolio .portfolio-item {
+  margin-bottom: 28px !important;
+}
+
 @media (max-width: 1024px) {
   .portfolio .portfolio-container {
     grid-template-columns: repeat(2, 360px) !important;
@@ -1114,4 +1106,14 @@ section {
     width: 100% !important;
     max-width: 100% !important;
   }
+}
+
+/* Custom: show black outline border on all portfolio and videos cards by default */
+#portfolio .portfolio-wrap,
+.portfolio .portfolio-wrap,
+#videos .videos-wrap,
+.videos .videos-wrap {
+  border: 1px solid rgba(0,0,0,0.95) !important;
+  border-radius: 32px !important; /* preserve existing rounding */
+  overflow: hidden !important;
 }
