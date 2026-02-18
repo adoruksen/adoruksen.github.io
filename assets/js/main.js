@@ -551,6 +551,29 @@
   });
 
   /**
+ * Reverse Portfolio Items Order
+ */
+document.addEventListener('DOMContentLoaded', function() {
+  const portfolioContainer = document.querySelector('.portfolio-container');
+  
+  if (portfolioContainer) {
+    // Tüm portfolio item'ları al
+    const portfolioItems = Array.from(portfolioContainer.querySelectorAll('.portfolio-item'));
+    
+    // Sırayı tersine çevir
+    portfolioItems.reverse();
+    
+    // Container'ı temizle
+    portfolioContainer.innerHTML = '';
+    
+    // Ters sırada tekrar ekle
+    portfolioItems.forEach(item => {
+      portfolioContainer.appendChild(item);
+    });
+  }
+});
+
+  /**
    * Portfolio Card Hover Sound Effect (Optional)
    * Uncomment if you want subtle interaction feedback
    */
